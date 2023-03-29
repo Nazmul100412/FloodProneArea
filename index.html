@@ -37,14 +37,14 @@
         <script src="js/leaflet-control-geocoder.Geocoder.js"></script>
         <script src="js/leaflet-measure.js"></script>
         <script src="js/leaflet-search.js"></script>
-        <script src="data/OPZBoundary_1.js"></script>
-        <script src="data/DistrictBoundary_2.js"></script>
-        <script src="data/RegionBoundary_3.js"></script>
-        <script src="data/CountryBoundary_4.js"></script>
-        <script src="data/AccessibilityNetwork_5.js"></script>
-        <script src="data/FloodProneAreaBuffer1km_6.js"></script>
-        <script src="data/FloodProneArea_7.js"></script>
-        <script src="data/SettlementLocations_8.js"></script>
+        <script src="data/OPZBoundary_2.js"></script>
+        <script src="data/DistrictBoundary_3.js"></script>
+        <script src="data/RegionBoundary_4.js"></script>
+        <script src="data/CountryBoundary_5.js"></script>
+        <script src="data/AccessibilityNetwork_6.js"></script>
+        <script src="data/FloodProneAreaBuffer1km_7.js"></script>
+        <script src="data/FloodProneArea_8.js"></script>
+        <script src="data/SettlementLocations_9.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -68,18 +68,30 @@
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
         }
-        map.createPane('pane_EsriTopographic_0');
-        map.getPane('pane_EsriTopographic_0').style.zIndex = 400;
-        var layer_EsriTopographic_0 = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-            pane: 'pane_EsriTopographic_0',
+        map.createPane('pane_GoogleSatellite_0');
+        map.getPane('pane_GoogleSatellite_0').style.zIndex = 400;
+        var layer_GoogleSatellite_0 = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+            pane: 'pane_GoogleSatellite_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_GoogleSatellite_0;
+        map.createPane('pane_EsriTopographic_1');
+        map.getPane('pane_EsriTopographic_1').style.zIndex = 401;
+        var layer_EsriTopographic_1 = L.tileLayer('https://server.arcgisonline.com/arcgis/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+            pane: 'pane_EsriTopographic_1',
             opacity: 1.0,
             attribution: '',
             minZoom: 1,
             maxZoom: 28,
         });
-        layer_EsriTopographic_0;
-        map.addLayer(layer_EsriTopographic_0);
-        function pop_OPZBoundary_1(feature, layer) {
+        layer_EsriTopographic_1;
+        map.addLayer(layer_EsriTopographic_1);
+        function pop_OPZBoundary_2(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -103,9 +115,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_OPZBoundary_1_0() {
+        function style_OPZBoundary_2_0() {
             return {
-                pane: 'pane_OPZBoundary_1',
+                pane: 'pane_OPZBoundary_2',
                 opacity: 1,
                 color: 'rgba(80,0,60,1.0)',
                 dashArray: '1,5',
@@ -116,20 +128,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_OPZBoundary_1');
-        map.getPane('pane_OPZBoundary_1').style.zIndex = 401;
-        map.getPane('pane_OPZBoundary_1').style['mix-blend-mode'] = 'normal';
-        var layer_OPZBoundary_1 = new L.geoJson(json_OPZBoundary_1, {
+        map.createPane('pane_OPZBoundary_2');
+        map.getPane('pane_OPZBoundary_2').style.zIndex = 402;
+        map.getPane('pane_OPZBoundary_2').style['mix-blend-mode'] = 'normal';
+        var layer_OPZBoundary_2 = new L.geoJson(json_OPZBoundary_2, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_OPZBoundary_1',
-            layerName: 'layer_OPZBoundary_1',
-            pane: 'pane_OPZBoundary_1',
-            onEachFeature: pop_OPZBoundary_1,
-            style: style_OPZBoundary_1_0,
+            dataVar: 'json_OPZBoundary_2',
+            layerName: 'layer_OPZBoundary_2',
+            pane: 'pane_OPZBoundary_2',
+            onEachFeature: pop_OPZBoundary_2,
+            style: style_OPZBoundary_2_0,
         });
-        bounds_group.addLayer(layer_OPZBoundary_1);
-        function pop_DistrictBoundary_2(feature, layer) {
+        bounds_group.addLayer(layer_OPZBoundary_2);
+        function pop_DistrictBoundary_3(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -153,9 +165,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_DistrictBoundary_2_0() {
+        function style_DistrictBoundary_3_0() {
             return {
-                pane: 'pane_DistrictBoundary_2',
+                pane: 'pane_DistrictBoundary_3',
                 opacity: 1,
                 color: 'rgba(124,122,122,1.0)',
                 dashArray: '',
@@ -168,9 +180,9 @@
                 interactive: true,
             }
         }
-        function style_DistrictBoundary_2_1() {
+        function style_DistrictBoundary_3_1() {
             return {
-                pane: 'pane_DistrictBoundary_2',
+                pane: 'pane_DistrictBoundary_3',
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
                 dashArray: '10,5,1,5,1,5',
@@ -183,21 +195,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_DistrictBoundary_2');
-        map.getPane('pane_DistrictBoundary_2').style.zIndex = 402;
-        map.getPane('pane_DistrictBoundary_2').style['mix-blend-mode'] = 'normal';
-        var layer_DistrictBoundary_2 = new L.geoJson.multiStyle(json_DistrictBoundary_2, {
+        map.createPane('pane_DistrictBoundary_3');
+        map.getPane('pane_DistrictBoundary_3').style.zIndex = 403;
+        map.getPane('pane_DistrictBoundary_3').style['mix-blend-mode'] = 'normal';
+        var layer_DistrictBoundary_3 = new L.geoJson.multiStyle(json_DistrictBoundary_3, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_DistrictBoundary_2',
-            layerName: 'layer_DistrictBoundary_2',
-            pane: 'pane_DistrictBoundary_2',
-            onEachFeature: pop_DistrictBoundary_2,
-            styles: [style_DistrictBoundary_2_0,style_DistrictBoundary_2_1,]
+            dataVar: 'json_DistrictBoundary_3',
+            layerName: 'layer_DistrictBoundary_3',
+            pane: 'pane_DistrictBoundary_3',
+            onEachFeature: pop_DistrictBoundary_3,
+            styles: [style_DistrictBoundary_3_0,style_DistrictBoundary_3_1,]
         });
-        bounds_group.addLayer(layer_DistrictBoundary_2);
-        map.addLayer(layer_DistrictBoundary_2);
-        function pop_RegionBoundary_3(feature, layer) {
+        bounds_group.addLayer(layer_DistrictBoundary_3);
+        map.addLayer(layer_DistrictBoundary_3);
+        function pop_RegionBoundary_4(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -218,9 +230,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_RegionBoundary_3_0() {
+        function style_RegionBoundary_4_0() {
             return {
-                pane: 'pane_RegionBoundary_3',
+                pane: 'pane_RegionBoundary_4',
                 opacity: 1,
                 color: 'rgba(255,236,129,1.0)',
                 dashArray: '',
@@ -233,9 +245,9 @@
                 interactive: true,
             }
         }
-        function style_RegionBoundary_3_1() {
+        function style_RegionBoundary_4_1() {
             return {
-                pane: 'pane_RegionBoundary_3',
+                pane: 'pane_RegionBoundary_4',
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
                 dashArray: '10,5,1,5',
@@ -248,21 +260,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_RegionBoundary_3');
-        map.getPane('pane_RegionBoundary_3').style.zIndex = 403;
-        map.getPane('pane_RegionBoundary_3').style['mix-blend-mode'] = 'normal';
-        var layer_RegionBoundary_3 = new L.geoJson.multiStyle(json_RegionBoundary_3, {
+        map.createPane('pane_RegionBoundary_4');
+        map.getPane('pane_RegionBoundary_4').style.zIndex = 404;
+        map.getPane('pane_RegionBoundary_4').style['mix-blend-mode'] = 'normal';
+        var layer_RegionBoundary_4 = new L.geoJson.multiStyle(json_RegionBoundary_4, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_RegionBoundary_3',
-            layerName: 'layer_RegionBoundary_3',
-            pane: 'pane_RegionBoundary_3',
-            onEachFeature: pop_RegionBoundary_3,
-            styles: [style_RegionBoundary_3_0,style_RegionBoundary_3_1,]
+            dataVar: 'json_RegionBoundary_4',
+            layerName: 'layer_RegionBoundary_4',
+            pane: 'pane_RegionBoundary_4',
+            onEachFeature: pop_RegionBoundary_4,
+            styles: [style_RegionBoundary_4_0,style_RegionBoundary_4_1,]
         });
-        bounds_group.addLayer(layer_RegionBoundary_3);
-        map.addLayer(layer_RegionBoundary_3);
-        function pop_CountryBoundary_4(feature, layer) {
+        bounds_group.addLayer(layer_RegionBoundary_4);
+        map.addLayer(layer_RegionBoundary_4);
+        function pop_CountryBoundary_5(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
@@ -274,9 +286,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_CountryBoundary_4_0() {
+        function style_CountryBoundary_5_0() {
             return {
-                pane: 'pane_CountryBoundary_4',
+                pane: 'pane_CountryBoundary_5',
                 opacity: 1,
                 color: 'rgba(95,95,95,1.0)',
                 dashArray: '',
@@ -289,9 +301,9 @@
                 interactive: true,
             }
         }
-        function style_CountryBoundary_4_1() {
+        function style_CountryBoundary_5_1() {
             return {
-                pane: 'pane_CountryBoundary_4',
+                pane: 'pane_CountryBoundary_5',
                 opacity: 1,
                 color: 'rgba(255,255,255,1.0)',
                 dashArray: '1,5',
@@ -304,21 +316,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_CountryBoundary_4');
-        map.getPane('pane_CountryBoundary_4').style.zIndex = 404;
-        map.getPane('pane_CountryBoundary_4').style['mix-blend-mode'] = 'normal';
-        var layer_CountryBoundary_4 = new L.geoJson.multiStyle(json_CountryBoundary_4, {
+        map.createPane('pane_CountryBoundary_5');
+        map.getPane('pane_CountryBoundary_5').style.zIndex = 405;
+        map.getPane('pane_CountryBoundary_5').style['mix-blend-mode'] = 'normal';
+        var layer_CountryBoundary_5 = new L.geoJson.multiStyle(json_CountryBoundary_5, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CountryBoundary_4',
-            layerName: 'layer_CountryBoundary_4',
-            pane: 'pane_CountryBoundary_4',
-            onEachFeature: pop_CountryBoundary_4,
-            styles: [style_CountryBoundary_4_0,style_CountryBoundary_4_1,]
+            dataVar: 'json_CountryBoundary_5',
+            layerName: 'layer_CountryBoundary_5',
+            pane: 'pane_CountryBoundary_5',
+            onEachFeature: pop_CountryBoundary_5,
+            styles: [style_CountryBoundary_5_0,style_CountryBoundary_5_1,]
         });
-        bounds_group.addLayer(layer_CountryBoundary_4);
-        map.addLayer(layer_CountryBoundary_4);
-        function pop_AccessibilityNetwork_5(feature, layer) {
+        bounds_group.addLayer(layer_CountryBoundary_5);
+        map.addLayer(layer_CountryBoundary_5);
+        function pop_AccessibilityNetwork_6(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['osm_id'] !== null ? autolinker.link(feature.properties['osm_id'].toLocaleString()) : '') + '</td>\
@@ -354,39 +366,26 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_AccessibilityNetwork_5_0(feature) {
+        function style_AccessibilityNetwork_6_0(feature) {
             switch(String(feature.properties['fclass'])) {
                 case 'primary':
                     return {
-                pane: 'pane_AccessibilityNetwork_5',
+                pane: 'pane_AccessibilityNetwork_6',
                 opacity: 1,
                 color: 'rgba(116,0,4,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
-                weight: 8.0,
+                weight: 4.0,
                 fillOpacity: 0,
                 interactive: true,
             }
                     break;
                 case 'secondary':
                     return {
-                pane: 'pane_AccessibilityNetwork_5',
+                pane: 'pane_AccessibilityNetwork_6',
                 opacity: 1,
                 color: 'rgba(255,91,45,1.0)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 5.0,
-                fillOpacity: 0,
-                interactive: true,
-            }
-                    break;
-                case 'tertiary':
-                    return {
-                pane: 'pane_AccessibilityNetwork_5',
-                opacity: 1,
-                color: 'rgba(255,203,206,1.0)',
                 dashArray: '',
                 lineCap: 'square',
                 lineJoin: 'bevel',
@@ -395,22 +394,36 @@
                 interactive: true,
             }
                     break;
+                case 'tertiary':
+                    return {
+                pane: 'pane_AccessibilityNetwork_6',
+                opacity: 1,
+                color: 'rgba(255,203,206,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+                    break;
             }
         }
-        map.createPane('pane_AccessibilityNetwork_5');
-        map.getPane('pane_AccessibilityNetwork_5').style.zIndex = 405;
-        map.getPane('pane_AccessibilityNetwork_5').style['mix-blend-mode'] = 'normal';
-        var layer_AccessibilityNetwork_5 = new L.geoJson(json_AccessibilityNetwork_5, {
+        map.createPane('pane_AccessibilityNetwork_6');
+        map.getPane('pane_AccessibilityNetwork_6').style.zIndex = 406;
+        map.getPane('pane_AccessibilityNetwork_6').style['mix-blend-mode'] = 'normal';
+        var layer_AccessibilityNetwork_6 = new L.geoJson(json_AccessibilityNetwork_6, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_AccessibilityNetwork_5',
-            layerName: 'layer_AccessibilityNetwork_5',
-            pane: 'pane_AccessibilityNetwork_5',
-            onEachFeature: pop_AccessibilityNetwork_5,
-            style: style_AccessibilityNetwork_5_0,
+            dataVar: 'json_AccessibilityNetwork_6',
+            layerName: 'layer_AccessibilityNetwork_6',
+            pane: 'pane_AccessibilityNetwork_6',
+            onEachFeature: pop_AccessibilityNetwork_6,
+            style: style_AccessibilityNetwork_6_0,
         });
-        bounds_group.addLayer(layer_AccessibilityNetwork_5);
-        function pop_FloodProneAreaBuffer1km_6(feature, layer) {
+        bounds_group.addLayer(layer_AccessibilityNetwork_6);
+        map.addLayer(layer_AccessibilityNetwork_6);
+        function pop_FloodProneAreaBuffer1km_7(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['BUFF_DIST'] !== null ? autolinker.link(feature.properties['BUFF_DIST'].toLocaleString()) : '') + '</td>\
@@ -419,9 +432,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_FloodProneAreaBuffer1km_6_0() {
+        function style_FloodProneAreaBuffer1km_7_0() {
             return {
-                pane: 'pane_FloodProneAreaBuffer1km_6',
+                pane: 'pane_FloodProneAreaBuffer1km_7',
                 opacity: 1,
                 color: 'rgba(1,124,255,1.0)',
                 dashArray: '',
@@ -434,21 +447,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FloodProneAreaBuffer1km_6');
-        map.getPane('pane_FloodProneAreaBuffer1km_6').style.zIndex = 406;
-        map.getPane('pane_FloodProneAreaBuffer1km_6').style['mix-blend-mode'] = 'normal';
-        var layer_FloodProneAreaBuffer1km_6 = new L.geoJson(json_FloodProneAreaBuffer1km_6, {
+        map.createPane('pane_FloodProneAreaBuffer1km_7');
+        map.getPane('pane_FloodProneAreaBuffer1km_7').style.zIndex = 407;
+        map.getPane('pane_FloodProneAreaBuffer1km_7').style['mix-blend-mode'] = 'normal';
+        var layer_FloodProneAreaBuffer1km_7 = new L.geoJson(json_FloodProneAreaBuffer1km_7, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FloodProneAreaBuffer1km_6',
-            layerName: 'layer_FloodProneAreaBuffer1km_6',
-            pane: 'pane_FloodProneAreaBuffer1km_6',
-            onEachFeature: pop_FloodProneAreaBuffer1km_6,
-            style: style_FloodProneAreaBuffer1km_6_0,
+            dataVar: 'json_FloodProneAreaBuffer1km_7',
+            layerName: 'layer_FloodProneAreaBuffer1km_7',
+            pane: 'pane_FloodProneAreaBuffer1km_7',
+            onEachFeature: pop_FloodProneAreaBuffer1km_7,
+            style: style_FloodProneAreaBuffer1km_7_0,
         });
-        bounds_group.addLayer(layer_FloodProneAreaBuffer1km_6);
-        map.addLayer(layer_FloodProneAreaBuffer1km_6);
-        function pop_FloodProneArea_7(feature, layer) {
+        bounds_group.addLayer(layer_FloodProneAreaBuffer1km_7);
+        map.addLayer(layer_FloodProneAreaBuffer1km_7);
+        function pop_FloodProneArea_8(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
@@ -460,9 +473,9 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_FloodProneArea_7_0() {
+        function style_FloodProneArea_8_0() {
             return {
-                pane: 'pane_FloodProneArea_7',
+                pane: 'pane_FloodProneArea_8',
                 opacity: 1,
                 color: 'rgba(0,51,254,1.0)',
                 dashArray: '',
@@ -475,21 +488,21 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FloodProneArea_7');
-        map.getPane('pane_FloodProneArea_7').style.zIndex = 407;
-        map.getPane('pane_FloodProneArea_7').style['mix-blend-mode'] = 'normal';
-        var layer_FloodProneArea_7 = new L.geoJson(json_FloodProneArea_7, {
+        map.createPane('pane_FloodProneArea_8');
+        map.getPane('pane_FloodProneArea_8').style.zIndex = 408;
+        map.getPane('pane_FloodProneArea_8').style['mix-blend-mode'] = 'normal';
+        var layer_FloodProneArea_8 = new L.geoJson(json_FloodProneArea_8, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FloodProneArea_7',
-            layerName: 'layer_FloodProneArea_7',
-            pane: 'pane_FloodProneArea_7',
-            onEachFeature: pop_FloodProneArea_7,
-            style: style_FloodProneArea_7_0,
+            dataVar: 'json_FloodProneArea_8',
+            layerName: 'layer_FloodProneArea_8',
+            pane: 'pane_FloodProneArea_8',
+            onEachFeature: pop_FloodProneArea_8,
+            style: style_FloodProneArea_8_0,
         });
-        bounds_group.addLayer(layer_FloodProneArea_7);
-        map.addLayer(layer_FloodProneArea_7);
-        function pop_SettlementLocations_8(feature, layer) {
+        bounds_group.addLayer(layer_FloodProneArea_8);
+        map.addLayer(layer_FloodProneArea_8);
+        function pop_SettlementLocations_9(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['ID'] !== null ? autolinker.link(feature.properties['ID'].toLocaleString()) : '') + '</td>\
@@ -528,11 +541,11 @@
             layer.bindPopup(popupContent, {maxHeight: 400});
         }
 
-        function style_SettlementLocations_8_0(feature) {
+        function style_SettlementLocations_9_0(feature) {
             switch(String(feature.properties['FloodInten'])) {
                 case 'Flood Prone Area 2020':
                     return {
-                pane: 'pane_SettlementLocations_8',
+                pane: 'pane_SettlementLocations_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -548,7 +561,7 @@
                     break;
                 case 'Flood Prone Area 2020 (Buffer 1km)':
                     return {
-                pane: 'pane_SettlementLocations_8',
+                pane: 'pane_SettlementLocations_9',
                 radius: 4.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -564,7 +577,7 @@
                     break;
                 case 'Not in Flood Prone Area':
                     return {
-                pane: 'pane_SettlementLocations_8',
+                pane: 'pane_SettlementLocations_9',
                 radius: 2.0,
                 opacity: 1,
                 color: 'rgba(35,35,35,0.0)',
@@ -580,26 +593,26 @@
                     break;
             }
         }
-        map.createPane('pane_SettlementLocations_8');
-        map.getPane('pane_SettlementLocations_8').style.zIndex = 408;
-        map.getPane('pane_SettlementLocations_8').style['mix-blend-mode'] = 'normal';
-        var layer_SettlementLocations_8 = new L.geoJson(json_SettlementLocations_8, {
+        map.createPane('pane_SettlementLocations_9');
+        map.getPane('pane_SettlementLocations_9').style.zIndex = 409;
+        map.getPane('pane_SettlementLocations_9').style['mix-blend-mode'] = 'normal';
+        var layer_SettlementLocations_9 = new L.geoJson(json_SettlementLocations_9, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_SettlementLocations_8',
-            layerName: 'layer_SettlementLocations_8',
-            pane: 'pane_SettlementLocations_8',
-            onEachFeature: pop_SettlementLocations_8,
+            dataVar: 'json_SettlementLocations_9',
+            layerName: 'layer_SettlementLocations_9',
+            pane: 'pane_SettlementLocations_9',
+            onEachFeature: pop_SettlementLocations_9,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.circleMarker(latlng, style_SettlementLocations_8_0(feature));
+                return L.circleMarker(latlng, style_SettlementLocations_9_0(feature));
             },
         });
-        bounds_group.addLayer(layer_SettlementLocations_8);
-        map.addLayer(layer_SettlementLocations_8);
+        bounds_group.addLayer(layer_SettlementLocations_9);
+        map.addLayer(layer_SettlementLocations_9);
         var osmGeocoder = new L.Control.Geocoder({
             collapsed: true,
             position: 'topleft',
@@ -611,15 +624,15 @@
         document.getElementsByClassName('leaflet-control-geocoder-icon')[0]
         .title += 'Search for a place';
         var baseMaps = {};
-        L.control.layers(baseMaps,{'SettlementLocations<br /><table><tr><td style="text-align: center;"><img src="legend/SettlementLocations_8_FloodProneArea20200.png" /></td><td>Flood Prone Area 2020</td></tr><tr><td style="text-align: center;"><img src="legend/SettlementLocations_8_FloodProneArea2020Buffer1km1.png" /></td><td>Flood Prone Area 2020 (Buffer 1km)</td></tr><tr><td style="text-align: center;"><img src="legend/SettlementLocations_8_NotinFloodProneArea2.png" /></td><td>Not in Flood Prone Area</td></tr></table>': layer_SettlementLocations_8,'<img src="legend/FloodProneArea_7.png" /> FloodProneArea': layer_FloodProneArea_7,'<img src="legend/FloodProneAreaBuffer1km_6.png" /> FloodProneAreaBuffer1km': layer_FloodProneAreaBuffer1km_6,'AccessibilityNetwork<br /><table><tr><td style="text-align: center;"><img src="legend/AccessibilityNetwork_5_primary0.png" /></td><td>primary</td></tr><tr><td style="text-align: center;"><img src="legend/AccessibilityNetwork_5_secondary1.png" /></td><td>secondary</td></tr><tr><td style="text-align: center;"><img src="legend/AccessibilityNetwork_5_tertiary2.png" /></td><td>tertiary</td></tr></table>': layer_AccessibilityNetwork_5,'<img src="legend/CountryBoundary_4.png" /> CountryBoundary': layer_CountryBoundary_4,'<img src="legend/RegionBoundary_3.png" /> RegionBoundary': layer_RegionBoundary_3,'<img src="legend/DistrictBoundary_2.png" /> DistrictBoundary': layer_DistrictBoundary_2,'<img src="legend/OPZBoundary_1.png" /> OPZBoundary': layer_OPZBoundary_1,"Esri Topographic": layer_EsriTopographic_0,}).addTo(map);
+        L.control.layers(baseMaps,{'SettlementLocations<br /><table><tr><td style="text-align: center;"><img src="legend/SettlementLocations_9_FloodProneArea20200.png" /></td><td>Flood Prone Area 2020</td></tr><tr><td style="text-align: center;"><img src="legend/SettlementLocations_9_FloodProneArea2020Buffer1km1.png" /></td><td>Flood Prone Area 2020 (Buffer 1km)</td></tr><tr><td style="text-align: center;"><img src="legend/SettlementLocations_9_NotinFloodProneArea2.png" /></td><td>Not in Flood Prone Area</td></tr></table>': layer_SettlementLocations_9,'<img src="legend/FloodProneArea_8.png" /> FloodProneArea': layer_FloodProneArea_8,'<img src="legend/FloodProneAreaBuffer1km_7.png" /> FloodProneAreaBuffer1km': layer_FloodProneAreaBuffer1km_7,'AccessibilityNetwork<br /><table><tr><td style="text-align: center;"><img src="legend/AccessibilityNetwork_6_primary0.png" /></td><td>primary</td></tr><tr><td style="text-align: center;"><img src="legend/AccessibilityNetwork_6_secondary1.png" /></td><td>secondary</td></tr><tr><td style="text-align: center;"><img src="legend/AccessibilityNetwork_6_tertiary2.png" /></td><td>tertiary</td></tr></table>': layer_AccessibilityNetwork_6,'<img src="legend/CountryBoundary_5.png" /> CountryBoundary': layer_CountryBoundary_5,'<img src="legend/RegionBoundary_4.png" /> RegionBoundary': layer_RegionBoundary_4,'<img src="legend/DistrictBoundary_3.png" /> DistrictBoundary': layer_DistrictBoundary_3,'<img src="legend/OPZBoundary_2.png" /> OPZBoundary': layer_OPZBoundary_2,"Esri Topographic": layer_EsriTopographic_1,"Google Satellite": layer_GoogleSatellite_0,}).addTo(map);
         setBounds();
         var i = 0;
-        layer_OPZBoundary_1.eachLayer(function(layer) {
+        layer_OPZBoundary_2.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['NAME'] !== null?String('<div style="color: #74003e; font-size: 12pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_OPZBoundary_1'});
+            layer.bindTooltip((layer.feature.properties['NAME'] !== null?String('<div style="color: #74003e; font-size: 12pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_OPZBoundary_2'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -627,12 +640,12 @@
               i++;
         });
         var i = 0;
-        layer_DistrictBoundary_2.eachLayer(function(layer) {
+        layer_DistrictBoundary_3.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ADM2_NAME'] !== null?String('<div style="color: #323232; font-size: 15pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['ADM2_NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DistrictBoundary_2'});
+            layer.bindTooltip((layer.feature.properties['ADM2_NAME'] !== null?String('<div style="color: #323232; font-size: 12pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['ADM2_NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_DistrictBoundary_3'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -640,12 +653,12 @@
               i++;
         });
         var i = 0;
-        layer_RegionBoundary_3.eachLayer(function(layer) {
+        layer_RegionBoundary_4.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['ADM1_NAME'] !== null?String('<div style="color: #ffc74d; font-size: 20pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['ADM1_NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_RegionBoundary_3'});
+            layer.bindTooltip((layer.feature.properties['ADM1_NAME'] !== null?String('<div style="color: #ffc74d; font-size: 15pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['ADM1_NAME']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_RegionBoundary_4'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -653,12 +666,12 @@
               i++;
         });
         var i = 0;
-        layer_CountryBoundary_4.eachLayer(function(layer) {
+        layer_CountryBoundary_5.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['COUNTRY'] !== null?String('<div style="color: #323232; font-size: 25pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['COUNTRY']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CountryBoundary_4'});
+            layer.bindTooltip((layer.feature.properties['COUNTRY'] !== null?String('<div style="color: #323232; font-size: 25pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['COUNTRY']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_CountryBoundary_5'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
@@ -666,21 +679,21 @@
               i++;
         });
         map.addControl(new L.Control.Search({
-            layer: layer_SettlementLocations_8,
+            layer: layer_SettlementLocations_9,
             initial: false,
             hideMarkerOnCollapse: true,
             propertyName: 'Name_Setl'}));
         document.getElementsByClassName('search-button')[0].className +=
          ' fa fa-binoculars';
-        resetLabels([layer_OPZBoundary_1,layer_DistrictBoundary_2,layer_RegionBoundary_3,layer_CountryBoundary_4]);
+        resetLabels([layer_OPZBoundary_2,layer_DistrictBoundary_3,layer_RegionBoundary_4,layer_CountryBoundary_5]);
         map.on("zoomend", function(){
-            resetLabels([layer_OPZBoundary_1,layer_DistrictBoundary_2,layer_RegionBoundary_3,layer_CountryBoundary_4]);
+            resetLabels([layer_OPZBoundary_2,layer_DistrictBoundary_3,layer_RegionBoundary_4,layer_CountryBoundary_5]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_OPZBoundary_1,layer_DistrictBoundary_2,layer_RegionBoundary_3,layer_CountryBoundary_4]);
+            resetLabels([layer_OPZBoundary_2,layer_DistrictBoundary_3,layer_RegionBoundary_4,layer_CountryBoundary_5]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_OPZBoundary_1,layer_DistrictBoundary_2,layer_RegionBoundary_3,layer_CountryBoundary_4]);
+            resetLabels([layer_OPZBoundary_2,layer_DistrictBoundary_3,layer_RegionBoundary_4,layer_CountryBoundary_5]);
         });
         </script>
     </body>
